@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Circular, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 40px;
+  width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-image: url(./pattern.png);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.reset-btn {
+  color: white;
+  background-color: rgb(59, 129, 59);
+  padding: 10px;
+  box-shadow: 2px 1px 4px gray;
+  border-radius: 6px;
+  border: none;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 420px;
+  padding: 20px;
+  margin: 20px;
+  background-image: linear-gradient(
+    to right,
+    rgba(96, 221, 142, 1),
+    rgba(24, 138, 141, 1)
+  );
+  border-radius: 10px;
+  box-shadow: 4px 6px 12px 0px #313131;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#Capa_1 {
+  width: 40px;
+  height: 40px;
+  display: none;
+}
+
+.flip {
+  /* background-color: white; */
+}
+.matched {
+  /* background-color: rgba(96, 221, 142, 1); */
+  /* transform: rotateY(180deg); */
+}
+.matched #Capa_1 {
+  display: block;
+}
+.flip #Capa_1 {
+  display: block;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+.card-front {
+  background-color: #0b2c24;
+  transition: 0.3s;
+  box-shadow: 1px 1px 3px 0px #313131;
+}
+
+.card-back {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  transition: 0.3s;
+  box-shadow: 1px 1px 3px 0px white;
+}
+
+.matched .card-back {
+  background-color: rgba(96, 221, 142, 1);
+  border: 1px solid rgb(231, 236, 233);
+  box-shadow: 1px 1px 3px 0px rgb(34, 141, 75);
+}
+
+.matched .card-inner {
+  transform: rotateY(180deg);
+
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    width: 350px;
+  }
+  .card {
+    width: 60px;
+    height: 60px;
+  }
+}
